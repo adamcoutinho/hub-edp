@@ -1,0 +1,19 @@
+version: '3'
+
+tasks:
+  rocky9:
+    cmds:
+      - packer init   vps-rocky9/rocky9.pkr.hcl
+      - packer build -var-file=vps-rocky9/rocky9.pkrvars.hcl vps-rocky9/rocky9.pkr.hcl
+  validate:
+    cmds:`
+      - packer init   vps-rocky9/rocky9.pkr.hcl
+      - packer validate -var-file=vps-rocky9/rocky9.pkrvars.hcl vps-rocky9/rocky9.pkr.hcl
+#  test:
+#    cmds:
+#      - packer validate test.pkr.hcl
+  test:
+    cmds:
+      - packer init   vps-rocky95/image.pkr.hcl
+      - echo "FINISH"
+    silent: true
